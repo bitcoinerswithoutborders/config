@@ -1,0 +1,73 @@
+PidFile = /var/www/hhvm.pid
+
+Server {
+  Host = b.wb
+  Port = 80
+  SourceRoot = /var/www/bwb/
+}
+
+Eval {
+  Jit = true
+}
+Log {
+  Level = Error
+  UseLogFile = true
+  File = /var/log/hhvm/error.log
+  Access {
+    * {
+      File = /var/log/hhvm/access.log
+      Format = %h %l %u %t \"%r\" %>s %b
+    }
+  }
+}
+
+VirtualHost {
+  * {
+    Pattern = .*
+    ServerVariables {
+      PHP_SELF = /index.php
+      SCRIPT_NAME = /index.php
+    }
+    RewriteRules {
+      dirindex {
+        pattern = ^(.*)/$
+        to = index.php/$1
+        qsa = true
+      }
+      * {
+        pattern = ^secret/(.*)$
+        to = wp-admin/$1
+        qsa = true
+      }
+      * {
+        pattern = ^(.*)$
+        to = index.php/$1
+        qsa = true
+      }
+    }
+  }
+}
+
+StaticFile {
+  FilesMatch {
+    * {
+      pattern = .*\.(dll|exe)
+      headers {
+        * = Content-Disposition: attachment
+      }
+    }
+  }
+  Extensions {
+    css = text/css
+    js = text/javascript
+    gif = image/gif
+    html = text/html
+    jpe = image/jpeg
+    jpeg = image/jpeg
+    jpg = image/jpeg
+    png = image/png
+    tif = image/tiff
+    tiff = image/tiff
+    txt = text/plain
+  }
+}
