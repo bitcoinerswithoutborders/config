@@ -24,6 +24,7 @@ just downloading wordpress and putting it into the folder should work as well th
 
 config tested with:
 wordpress 3.8.1 multisite - everything basically works, some rewrites missing
+
 newest version of fpdf - successfully renders pdf populated out of a folder of files.
 
 PROBLEMS:
