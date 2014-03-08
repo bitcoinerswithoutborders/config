@@ -1,0 +1,3 @@
+[hhvm]
+name=HHVM for Fedora 20 - x86_64
+baseurl=http://dl.hhvm.com/fedora/20/x86_64/

@@ -1,0 +1,32 @@
+{
+    "name": "BwB/installer",
+    "description": "BwB Wordpress composer installer.",
+    "type": "composer-installer",
+    "authors": [
+        {
+            "name": "Brian Greenacre",
+            "email": "bgreenacre42@gmail.com"
+        },
+        {
+			"name": "Jascha Ehrenreich - BitcoinersWithoutBorders",
+			"email": "jascha@jaeh.at"
+		}
+    ],
+    "autoload": {
+        "psr-0": { "BwB\\Composer":  "src/" }
+    },
+    "extra": {
+        "class": "BwB\\Composer\\WordpressInstaller",
+        "wordpress_coredir": "bwb/core",
+        "wordpress_wp_contentdir": "bwb/c",
+        "wordpress_wp_plugindir": "lib",
+        "wordpress_wp_config": {
+            "site_url": "http://bwb.is",
+            "db_host": "localhost",
+            "db_user": "username",
+            "db_pass": "password",
+            "db_name": "db_name",
+            "db_prefix": "db_prefix_"
+        }
+    }
+}
