@@ -7,6 +7,8 @@ Use http://github.com/bitcoinerswithoutborders/installer instead to get a dev en
 
 this repo contains the hhvm config and the composer.json we are currently playing around with.
 
+it will automatically be loaded using the dockerfile in the installer above.
+
 
 #####Contents of this repo:
 
