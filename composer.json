@@ -2,11 +2,12 @@
     "name": "BwB/installer",
     "description": "BwB Wordpress composer installer.",
     "type": "composer-installer",
+	"require": {
+		"wordpress/wordpress": "*",
+		"wp-cli/wp-cli": "*",
+		"psy/psysh": "*"
+    },
     "authors": [
-        {
-            "name": "Brian Greenacre",
-            "email": "bgreenacre42@gmail.com"
-        },
         {
 			"name": "Jascha Ehrenreich - BitcoinersWithoutBorders",
 			"email": "jascha@jaeh.at"
@@ -15,12 +16,40 @@
     "autoload": {
         "psr-0": { "BwB\\Composer":  "src/" }
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "wordpress/wordpress",
+                "type": "webroot",
+                "version": "3.8.1",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/WordPress/WordPress.git",
+                    "reference": "3.8.1"
+                },
+                "require": {
+                    "fancyguy/webroot-installer": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "composer",
+            "url": "http://wpackagist.org"
+        }
+    ],
     "extra": {
-        "class": "BwB\\Composer\\WordpressInstaller",
-        "wordpress_coredir": "bwb/core",
-        "wordpress_wp_contentdir": "bwb/c",
-        "wordpress_wp_plugindir": "lib",
-        "wordpress_wp_config": {
+		"webroot-dir": "bwb",
+		"webroot-package": "wordpress/wordpress",
+		"installer-paths": {
+			"c/lib/{$name}/": ["type:wordpress-plugin"],
+			"c/themes/{$name}/": ["type:wordpress-theme"]
+		},
+        "class": "BwB\\Composer\\BwBInstaller",
+        "bwb_wp_coredir": "bwb/core",
+        "bwb_wp_contentdir": "bwb/c",
+        "bwb_wp_plugindir": "lib",
+        "bwb_wp_config": {
             "site_url": "http://bwb.is",
             "db_host": "localhost",
             "db_user": "username",
