@@ -11,7 +11,7 @@ this repo contains the hhvm config and the composer.json we are currently playin
 #####Contents of this repo:
 
 ######hhvm.hdf:
-a config file for http://hhtm.com that has all the rules needed to run wordpress. its not deployable yet though.
+a config file for http://hhtm.com that has all the rules needed to run wordpress. its not in use yet though and not tested thouroughly.
 
 ######hhvm.repo:
 the file containing the fedora repo information for the facebook hhvm repo. this allows automated install through the dockerfile in the installer package
