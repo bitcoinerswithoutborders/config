@@ -1,11 +1,14 @@
 {
     "name": "BwB/installer",
-    "description": "BwB Wordpress composer installer.",
+    "description": "BwB fedora / hhvm / mariadb / wordpress / composer installer.",
     "type": "composer-installer",
 	"require": {
 		"wordpress/wordpress": "*",
 		"wp-cli/wp-cli": "*",
-		"psy/psysh": "*"
+		"psy/psysh": "*",
+		"wpackagist-plugin/timber": "*",
+		"wpackagist-plugin/wp-less": "*",
+		"wpackagist-plugin/meta-box": "*"
     },
     "authors": [
         {
@@ -42,20 +45,26 @@
 		"webroot-dir": "bwb",
 		"webroot-package": "wordpress/wordpress",
 		"installer-paths": {
-			"c/lib/{$name}/": ["type:wordpress-plugin"],
-			"c/themes/{$name}/": ["type:wordpress-theme"]
+			"bwb/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+			"bwb/wp-content/themes/{$name}/": ["type:wordpress-theme"]
 		},
-        "class": "BwB\\Composer\\BwBInstaller",
-        "bwb_wp_coredir": "bwb/core",
-        "bwb_wp_contentdir": "bwb/c",
-        "bwb_wp_plugindir": "lib",
+		"class": "BwB\\Composer\\BwBInstaller",
         "bwb_wp_config": {
             "site_url": "http://bwb.is",
+            "site_domain": "bwb.is",
             "db_host": "localhost",
             "db_user": "username",
             "db_pass": "password",
             "db_name": "db_name",
-            "db_prefix": "db_prefix_"
+            "db_prefix": "db_prefix_",
+			"upload_dir": "static",
+			"core_dir": "bwb/core",
+			"content_dir": "bwb/c",
+			"plugin_dir": "lib",
+			"multisite": "true",
+			"subdomains": "true",
+			"multidomain": "true"
+			
         }
     }
 }

@@ -86,11 +86,18 @@ define('WP_HOME', ':site_url');
 define('bwb_content_url', ':bwb_content_url');
 define('WP_PLUGIN_URL', ':bwb_content_url/:plugin_dir');
 define('DISALLOW_FILE_EDIT', :disallow_file_edit);
-define('UPLOADS', ':upload_dir');
+define('UPLOADS', ':upload_dir' );
 
-if (is_file(__DIR__ . '/../../../:vendor_dir/autoload.php')) :
+//adds multidomain features through [plugin-link]
+define( 'SUNRISE', ':sunrise' ); 
+
+:multisite_text
+
+
+if (is_file(__DIR__ . '/../../../:vendor_dir/autoload.php'))
+{
     include_once __DIR__ . '/../../../:vendor_dir/autoload.php';
-endif;
+}
 
 /* That's all, stop editing! Happy blogging. */
 

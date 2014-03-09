@@ -29,16 +29,17 @@ VirtualHost {
       SCRIPT_NAME = /index.php
     }
     RewriteRules {
+	  * {
+        pattern = ^wp-admin/network/(.*)$
+        to = wp-admin/network/index.php/$1
+        qsa = true
+      }
       * {
         pattern = ^wp-admin/(.*)$
         to = wp-admin/index.php/$1
         qsa = true
       }
-      * {
-        pattern = ^wp-admin/network/(.*)$
-        to = wp-admin/network/index.php/$1
-        qsa = true
-      }
+      
       * {
         pattern = ^(.*)$
         to = index.php/$1

@@ -3,8 +3,92 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "6e0a53cdf7a9e9c9d873fe8d0a0e65a2",
+    "hash": "4b9e7f5da4ee3d51b6ac3a15320737d3",
     "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.0.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "4127333b03e8b4c08d081958548aae5419d1a2fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/4127333b03e8b4c08d081958548aae5419d1a2fa",
+                "reference": "4127333b03e8b4c08d081958548aae5419d1a2fa",
+                "shasum": ""
+            },
+            "replace": {
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "Composer\\Installers\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\Installers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "http://composer.github.com/installers/",
+            "keywords": [
+                "Craft",
+                "Hurad",
+                "MODX Evo",
+                "OXID",
+                "WolfCMS",
+                "agl",
+                "annotatecms",
+                "cakephp",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "drupal",
+                "elgg",
+                "fuelphp",
+                "installer",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lithium",
+                "magento",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "shopware",
+                "silverstripe",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "zend",
+                "zikula"
+            ],
+            "time": "2014-02-24 04:21:34"
+        },
         {
             "name": "fancyguy/webroot-installer",
             "version": "1.0.0",
@@ -542,6 +626,75 @@
                 "wordpress"
             ],
             "time": "2014-02-28 15:47:44"
+        },
+        {
+            "name": "wpackagist-plugin/meta-box",
+            "version": "4.3.8",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/meta-box/",
+                "reference": "tags/4.3.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/meta-box.4.3.8.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "replace": {
+                "wpackagist/meta-box": "self.version"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/meta-box/"
+        },
+        {
+            "name": "wpackagist-plugin/timber",
+            "version": "0.8",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/timber/",
+                "reference": "tags/0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/timber.0.8.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "replace": {
+                "wpackagist/timber": "self.version"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/timber/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-less",
+            "version": "1.6.0",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/wp-less/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/wp-less.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "replace": {
+                "wpackagist/wp-less": "self.version"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/wp-less/"
         }
     ],
     "packages-dev": [
