@@ -1,4 +1,10 @@
-##hhvm-config
+
+
+
+
+##BitcoinersWithoutBorders hhvm-config
+
+
 
 #####DONT USE THIS REPO DIRECTLY!
 
@@ -8,6 +14,9 @@ Use http://github.com/bitcoinerswithoutborders/installer instead to get a dev en
 this repo contains the hhvm config and the composer.json we are currently playing around with.
 
 it will automatically be loaded using the dockerfile in the installer above.
+
+HOWEVER: everything is loaded from repositories, not built from source.
+the hhvm.gpg key is loaded through http from dl.hhvm.org and not to be trusted.
 
 
 #####Contents of this repo:
@@ -21,6 +30,11 @@ the file containing the fedora repo information for the facebook hhvm repo. this
 ######hhvm.sh:
 shell file to start, stop and restart the hhvm.
 uses hhvm.pid in the same folder hhvm.sh is executed and the globally installed hhvm
+
+######hhvm.gpg.key
+the gpg key downloaded from http://dl.hhvm.com/conf/hhvm.gpg.key. 
+since this url can not be trusted the key cant be either, since the repo cant be trusted this doesnt matter though :p
+
 
 ######composer.json:
 loads some php libraries needed to use wp-cli,
