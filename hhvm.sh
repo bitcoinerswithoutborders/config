@@ -2,6 +2,7 @@
 
 function startHHVM {
   echo "Looking if hhvmd is started"
+
   if [ -e /docker/config/hhvm.pid ] ; then
     pid=$(cat /docker/config/hhvm.pid)
     echo "hhvm is running already. pid = $pid"
@@ -21,7 +22,7 @@ function stopHHVM {
   else
     echo "hhvm is not running."
   fi
-  return 0
+  return 1
 }
 
 
