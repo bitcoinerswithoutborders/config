@@ -1,18 +1,21 @@
 #!/bin/bash
 
 function startHHVM {
-  echo "Looking if hhvmd is started"
+  echo "Looking if hhvmd is running"
 
   if [ -e /docker/config/hhvm.pid ] ; then
     pid=$(cat /docker/config/hhvm.pid)
     echo "hhvm is running already. pid = $pid"
   else
     echo "Starting hhvm."
-    hhvm -m server -p 80 -c /docker/config/hhvm.hdf && echo "Daemon Started."
+    hhvm -m server -p 80 -c /docker/config/hhvm.hdf &
+    echo "Daemon Started."
   fi
 }
 
 function stopHHVM {
+  echo "Looking if hhvmd is running"
+
   if [ -e /docker/config/hhvm.pid ] ; then
     pid=$(cat /docker/config/hhvm.pid)
     echo "Killing hhvm with pid $pid"
