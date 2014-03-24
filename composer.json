@@ -1,7 +1,7 @@
 {
-    "name": "BwB/installer",
-    "description": "BwB fedora / hhvm / mariadb / wordpress / composer installer.",
-    "type": "composer-installer",
+  "name": "BwB/installer",
+  "description": "BwB fedora / hhvm / mariadb / wordpress / composer installer.",
+  "type": "composer-installer",
 	"require": {
 		"wordpress/wordpress": "*",
 		"wp-cli/wp-cli": "*",
@@ -9,62 +9,62 @@
 		"wpackagist-plugin/timber": "*",
 		"wpackagist-plugin/wp-less": "*",
 		"wpackagist-plugin/meta-box": "*"
-    },
-    "authors": [
-        {
-			"name": "Jascha Ehrenreich - BitcoinersWithoutBorders",
-			"email": "jascha@jaeh.at"
-		}
-    ],
-    "autoload": {
-        "psr-0": { "BwB\\Composer":  "src/" }
-    },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "wordpress/wordpress",
-                "type": "webroot",
-                "version": "3.8.1",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/WordPress/WordPress.git",
-                    "reference": "3.8.1"
-                },
-                "require": {
-                    "fancyguy/webroot-installer": "1.0.0"
-                }
-            }
-        },
-        {
-            "type": "composer",
-            "url": "http://wpackagist.org"
-        }
-    ],
-    "extra": {
-		"webroot-dir": "bwb",
-		"webroot-package": "wordpress/wordpress",
-		"installer-paths": {
-			"bwb/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-			"bwb/wp-content/themes/{$name}/": ["type:wordpress-theme"]
-		},
-		"class": "BwB\\Composer\\BwBInstaller",
-        "bwb_wp_config": {
-            "site_url": "http://bwb.is",
-            "site_domain": "bwb.is",
-            "db_host": "localhost",
-            "db_user": "username",
-            "db_pass": "password",
-            "db_name": "db_name",
-            "db_prefix": "db_prefix_",
-			"upload_dir": "static",
-			"core_dir": "bwb/core",
-			"content_dir": "bwb/c",
-			"plugin_dir": "lib",
-			"multisite": "true",
-			"subdomains": "true",
-			"multidomain": "true"
-			
-        }
+  },
+  "authors": [
+    {
+      "name": "Jascha Ehrenreich - BitcoinersWithoutBorders",
+      "email": "jascha@jaeh.at"
     }
+  ],
+  "autoload": {
+    "psr-0": { "BwB\\Composer":  "src/" }
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "wordpress/wordpress",
+        "type": "webroot",
+        "version": "3.8.1",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/WordPress/WordPress.git",
+          "reference": "3.8.1"
+        },
+        "require": {
+          "fancyguy/webroot-installer": "1.0.0"
+        }
+      }
+    },
+    {
+      "type": "composer",
+      "url": "http://wpackagist.org"
+    }
+  ],
+  "extra": {
+  "webroot-dir": "bwb",
+  "webroot-package": "wordpress/wordpress",
+  "installer-paths": {
+    "bwb/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+    "bwb/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+  },
+  "class": "BwB\\Composer\\BwBInstaller",
+    "bwb_wp_config": {
+          "site_url": "http://bwb.is",
+          "site_domain": "bwb.is",
+          "db_host": "localhost",
+          "db_user": "username",
+          "db_pass": "password",
+          "db_name": "db_name",
+          "db_prefix": "db_prefix_",
+      "upload_dir": "static",
+      "core_dir": "bwb/core",
+      "content_dir": "bwb/c",
+      "plugin_dir": "lib",
+      "multisite": "true",
+      "subdomains": "true",
+      "multidomain": "true"
+    
+    }
+  }
 }

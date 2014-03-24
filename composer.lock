@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4b9e7f5da4ee3d51b6ac3a15320737d3",
+    "hash": "ef7ce457537f5253fc2b53fe46895b1c",
     "packages": [
         {
             "name": "composer/installers",
@@ -263,16 +263,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.1.2",
+            "version": "v0.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "1fc3294b7c1cbd5e89738bc2ec40b53c59551c0a"
+                "reference": "636ea9b98ae228fadc3b500cb858eef0c6b63194"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1fc3294b7c1cbd5e89738bc2ec40b53c59551c0a",
-                "reference": "1fc3294b7c1cbd5e89738bc2ec40b53c59551c0a",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/636ea9b98ae228fadc3b500cb858eef0c6b63194",
+                "reference": "636ea9b98ae228fadc3b500cb858eef0c6b63194",
                 "shasum": ""
             },
             "require": {
@@ -320,7 +320,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2014-03-08 15:57:43"
+            "time": "2014-03-18 17:26:21"
         },
         {
             "name": "rhumsaa/array_column",

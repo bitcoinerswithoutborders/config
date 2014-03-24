@@ -1,13 +1,15 @@
 #!/bin/bash
 
 function startHHVM {
-  echo "Starting hhvmd."
+  echo "Looking if hhvmd is started"
   if [ -e /docker/config/hhvm.pid ] ; then
     pid=$(cat /docker/config/hhvm.pid)
     echo "hhvm is running already. pid = $pid"
   else
+    echo "Starting hhvm."
     hhvm -m daemon -p 80 -c /docker/config/hhvm.hdf
   fi
+  return 1
 }
 
 function stopHHVM {
@@ -19,6 +21,7 @@ function stopHHVM {
   else
     echo "hhvm is not running."
   fi
+  return 0
 }
 
 
