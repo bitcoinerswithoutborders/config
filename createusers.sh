@@ -4,5 +4,7 @@ function createUser(name) {
   echo "creating user with name $name"
 }
 
-createUser "bwb-hhvm"
-createUser "bwb-mariadb"
+#~ createUser "bwb-hhvm"
+#~ createUser "bwb-mariadb"
+
+echo "create users"
