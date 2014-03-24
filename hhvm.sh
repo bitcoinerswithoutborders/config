@@ -9,6 +9,7 @@ function startHHVM {
   else
     echo "Starting hhvm."
     hhvm -m daemon -p 80 -c /docker/config/hhvm.hdf
+    echo "Daemon Started."
   fi
   return 1
 }
