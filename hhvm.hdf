@@ -1,4 +1,4 @@
-PidFile = /var/www/hhvm.pid
+PidFile = /docker/config/hhvm.pid
 
 Server {
   Host = b.wb
@@ -9,13 +9,14 @@ Server {
 Eval {
   Jit = true
 }
+
 Log {
   Level = Error
   UseLogFile = true
-  File = /var/log/hhvm/error.log
+  File = /docker/log/error.log
   Access {
     * {
-      File = /var/log/hhvm/access.log
+      File = /docker/log/access.log
       Format = %h %l %u %t \"%r\" %>s %b
     }
   }
@@ -24,25 +25,10 @@ Log {
 VirtualHost {
   * {
     Pattern = .*
-    ServerVariables {
-      PHP_SELF = /index.php
-      SCRIPT_NAME = /index.php
-    }
     RewriteRules {
-	  * {
-        pattern = ^wp-admin/network/(.*)$
-        to = wp-admin/network/index.php/$1
-        qsa = true
-      }
-      * {
-        pattern = ^wp-admin/(.*)$
-        to = wp-admin/index.php/$1
-        qsa = true
-      }
-      
-      * {
-        pattern = ^(.*)$
-        to = index.php/$1
+      dirindex {
+        pattern = ^/(.*)/$
+        to = $1/index.php
         qsa = true
       }
     }

@@ -1,26 +1,57 @@
 #!/bin/bash
 
+function startHHVM() {
+  echo "Starting hhvmd."
+  if [ -e /docker/config/hhvm.pid ] ; then
+    pid=$(cat /docker/config/hhvm.pid)
+    echo "hhvm is running already. pid = $pid"
+  else
+    hhvm -m daemon -p 80 -c /docker/config/hhvm.hdf
+  fi
+}
+
+function stopHHVM() {
+  if [ -e /docker/config/hhvm.pid ] ; then
+    pid=$(cat /docker/config/hhvm.pid)
+    echo "Killing hhvm with pid $pid"
+    kill -SIGTERM ${pid}
+    rm /docker/config/hhvm.pid -f
+  else
+    echo "hhvm is not running."
+  fi
+}
+
+
 case "$1" in
   start)
-		echo "Starting hhvm"
-        hhvm -m daemon -p 80 -c /docker/config/hhvm.hdf
-		echo "[Ok]"
-        ;;
+    startHHVM
+    echo "[Ok]"
+    ;;
+
   stop)
-		echo "Killing hhvm with pid `cat /docker/config/hhvm.pid`"
-        kill -SIGTERM `cat /docker/config/hhvm.pid`
-		echo "[OK]"
-        ;;
+    stopHHVM
+    echo "[OK]"
+    ;;
+
+  update)
+    echo "Running hhvmd update"
+    cd /docker/config/
+    git pull
+    echo "hhvmd updated, restarting hhvm daemon now"
+    stopHHVM
+    startHHVM
+    echo "[OK]"
+    ;;
+
   restart)
-		echo "Killing hhvm with pid `cat /docker/config/hhvm.pid`"
-        kill -SIGTERM `cat /docker/config/hhvm.pid`
-        echo "Starting hhvm"
-        hhvm -m daemon -p 80 -c /docker/config/hhvm.hdf
-		echo "[OK]"
-        ;;
+    stopHHVM
+    startHHVM
+    echo "[OK]"
+    ;;
+
   *)
-        echo "Usage: hhvmd {start|stop|restart}"
-        exit 1
+    echo "Usage: hhvmd {start|stop|restart|update}"
+    exit 1
 esac
 
 exit 0
