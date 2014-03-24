@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function startHHVM() {
+function startHHVM {
   echo "Starting hhvmd."
   if [ -e /docker/config/hhvm.pid ] ; then
     pid=$(cat /docker/config/hhvm.pid)
@@ -10,7 +10,7 @@ function startHHVM() {
   fi
 }
 
-function stopHHVM() {
+function stopHHVM {
   if [ -e /docker/config/hhvm.pid ] ; then
     pid=$(cat /docker/config/hhvm.pid)
     echo "Killing hhvm with pid $pid"

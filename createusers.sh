@@ -1,10 +1,12 @@
 #!/bin/bash
 
-function createUser(name) {
-  echo "creating user with name $name"
+function createUser {
+  echo $1
+  useradd $1
+  pass=$(makepasswd -m 42)
+  echo $pass | passwd $1
+  echo "please copy the password from the next line, it will not be saved anywhere! make sure not to include the spaces around the password!"
+  echo "Created User with Username: $1 and password: | $pass |"
 }
 
-#~ createUser "bwb-hhvm"
-#~ createUser "bwb-mariadb"
-
-echo "create users"
+createUser $1
